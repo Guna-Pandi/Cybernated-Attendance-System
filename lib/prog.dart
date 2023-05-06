@@ -88,37 +88,51 @@ class Home extends StatelessWidget {
               ),
             ),
             SizedBox(height: 40.0),
-             GestureDetector(
-              onTap: () {
-                Future<Object?> myFuture = Navigator.pushNamed(context, '/IP');
-                myFuture.then((result) {
-                  ip = result.toString();
-                  // Do something with myString
-                });
-              },
-              child: Container(
-                width: 140,
-                height: 40,
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(246, 198, 135, 238),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: MouseRegion(
-                  cursor: SystemMouseCursors.click,
-                  child: Center(
-                    child: Text(
-                      'Configure IP',
-                      style: GoogleFonts.josefinSans(
-                        textStyle: TextStyle(
-                          color: Color.fromARGB(255, 0, 0, 0),
-                          fontWeight: FontWeight.w800,
-                          fontSize: 16,
+            Row(
+              mainAxisAlignment:
+                  MainAxisAlignment.spaceBetween, // adjust as needed
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 46.0),
+                  child: GestureDetector(
+                    onTap: () {
+                      Future<Object?> myFuture =
+                          Navigator.pushNamed(context, '/IP');
+                      myFuture.then((result) {
+                        ip = result.toString();
+                        // Do something with myString
+                      });
+                    },
+                    child: Container(
+                      width: 140,
+                      height: 40,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(246, 198, 135, 238),
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: Center(
+                          child: Text(
+                            'Configure IP',
+                            style: GoogleFonts.josefinSans(
+                              textStyle: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontWeight: FontWeight.w800,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(right: 46.0),
+                  child: _makeBtn(context, userid),
+                ),
+              ],
             ),
             SizedBox(height: 25.0),
             Row(
@@ -136,8 +150,6 @@ class Home extends StatelessWidget {
                 _signoutBtn(context, userid),
               ],
             ),
-           
-           
           ],
         )),
       ),
@@ -183,6 +195,32 @@ class Home extends StatelessWidget {
         child: Center(
           child: Text(
             'Stop Attendance',
+            style: GoogleFonts.josefinSans(
+              textStyle: TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontWeight: FontWeight.w800,
+                fontSize: 16,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _makeBtn(BuildContext context, String? userid) {
+    return GestureDetector(
+      onTap: () => _run2Script(userid),
+      child: Container(
+        width: 140,
+        height: 40,
+        decoration: BoxDecoration(
+          color: Color.fromARGB(162, 62, 232, 235),
+          borderRadius: BorderRadius.circular(5),
+        ),
+        child: Center(
+          child: Text(
+            'Make Adjustment',
             style: GoogleFonts.josefinSans(
               textStyle: TextStyle(
                 color: Color.fromARGB(255, 0, 0, 0),
@@ -278,6 +316,30 @@ class Home extends StatelessWidget {
     try {
       final response = await http.get(Uri.parse(
           'http://$ip:5000/run-script?name=$classname&userid=$userid'));
+      print(response.statusCode); // Print the HTTP response status code
+      print(response.body); // Print the response body for further inspection
+    } catch (e) {
+      print(e);
+      // Print any error or exception that occurs
+    }
+  }
+
+  // void _runScript(String? userid) async {
+  //   final classname = _classController.text.trim();
+  //   try {
+  //     final response = await http.get(Uri.parse(
+  //         'http://$ip:5000/run-script?name=$classname&userid=$userid'));
+  //   } catch (e) {
+  //     print(e);
+  //   }
+  //   print('success');
+  // }
+
+  void _run2Script(String? userid) async {
+    final classname = _classController.text.trim();
+    try {
+      final response = await http.get(Uri.parse(
+          'http://$ip:6000/run2-script?name=$classname&userid=$userid'));
     } catch (e) {
       print(e);
     }
