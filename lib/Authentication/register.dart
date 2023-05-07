@@ -257,6 +257,7 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
+  
 
   Widget _signUpLabel(String label, Color textColor) {
     return Text(
@@ -345,7 +346,7 @@ class _RegisterState extends State<Register> {
         "Register",
         style: GoogleFonts.josefinSans(
           textStyle: const TextStyle(
-            color: Color.fromARGB(255, 106, 255, 0),
+            color: Color.fromARGB(255, 145, 255, 0),
             fontWeight: FontWeight.w900,
             fontSize: 38,
           ),

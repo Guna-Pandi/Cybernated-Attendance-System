@@ -236,7 +236,7 @@ class LoginPage extends StatelessWidget {
         "Login",
         style: GoogleFonts.josefinSans(
           textStyle: const TextStyle(
-            color: Color.fromARGB(255, 0, 115, 255),
+           color: Color.fromARGB(255, 145, 255, 0),
             fontWeight: FontWeight.w900,
             fontSize: 38,
           ),
