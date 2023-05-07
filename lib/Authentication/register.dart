@@ -153,9 +153,13 @@ class _RegisterState extends State<Register> {
                               errorText: _isEmailValid
                                   ? null
                                   : 'Please enter a valid email',
+                              errorStyle: TextStyle(
+                                color: Color.fromARGB(
+                                    255, 255, 17, 0), // set the color here
+                              ),
                               hintStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 18,
+                                color: Color.fromARGB(199, 255, 255, 255),
+                                fontSize: 15,
                               ),
                               filled: true,
                               fillColor: Color.fromARGB(220, 180, 180, 180),
@@ -163,6 +167,11 @@ class _RegisterState extends State<Register> {
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide: BorderSide.none,
                               ),
+                            ),
+                            style: TextStyle(
+                              color:
+                                  Colors.black, // set the text color to black
+                              fontSize: 15,
                             ),
                             onChanged: (value) {
                               final email = value.trim();
@@ -172,7 +181,7 @@ class _RegisterState extends State<Register> {
                             },
                           ),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 20),
                         SizedBox(
                           height: 60,
                           child: TextField(
@@ -181,15 +190,20 @@ class _RegisterState extends State<Register> {
                             decoration: InputDecoration(
                               hintText: "Enter Your Password 🔑",
                               hintStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 18,
+                                color: Color.fromARGB(199, 255, 255, 255),
+                                fontSize: 15,
                               ),
-                               fillColor: Color.fromARGB(220, 180, 180, 180),
+                              fillColor: Color.fromARGB(220, 180, 180, 180),
                               filled: true,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide: BorderSide.none,
                               ),
+                            ),
+                            style: TextStyle(
+                              color:
+                                  Colors.black, // set the text color to black
+                              fontSize: 15,
                             ),
                           ),
                         ),
@@ -203,15 +217,20 @@ class _RegisterState extends State<Register> {
                             decoration: InputDecoration(
                               hintText: 'Enter Username 📛',
                               hintStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 18,
+                                color: Color.fromARGB(199, 255, 255, 255),
+                                fontSize: 15,
                               ),
-                               fillColor: Color.fromARGB(220, 180, 180, 180),
+                              fillColor: Color.fromARGB(220, 180, 180, 180),
                               filled: true,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide: BorderSide.none,
                               ),
+                            ),
+                            style: TextStyle(
+                              color:
+                                  Colors.black, // set the text color to black
+                              fontSize: 15,
                             ),
                           ),
                         ),
@@ -220,15 +239,15 @@ class _RegisterState extends State<Register> {
                         ),
                         _regBtn(context),
                         const SizedBox(
-                          height: 50,
+                          height: 80,
                         ),
-                        _signUpLabel(
-                            "Already have an Account !", const Color.fromARGB(255, 255, 255, 255)),
+                        _signUpLabel("Already have an Account !",
+                            const Color.fromARGB(255, 255, 255, 255)),
                         const SizedBox(
-                          height: 10,
+                          height: 20,
                         ),
                         Material(
-                           color: Colors.transparent,
+                          color: Colors.transparent,
                           child: GestureDetector(
                             onTap: () {
                               Navigator.pushNamed(context, '/login');
@@ -236,7 +255,7 @@ class _RegisterState extends State<Register> {
                             child: Text(
                               'Sign In',
                               style: TextStyle(
-                              color: Color.fromARGB(255, 5, 164, 243),
+                                color: Color.fromARGB(255, 5, 164, 243),
                                 fontSize: 18,
                                 fontWeight: FontWeight.w800,
                               ),
@@ -257,7 +276,6 @@ class _RegisterState extends State<Register> {
       ),
     );
   }
-  
 
   Widget _signUpLabel(String label, Color textColor) {
     return Text(
@@ -313,7 +331,7 @@ class _RegisterState extends State<Register> {
           label,
           style: GoogleFonts.josefinSans(
             textStyle: const TextStyle(
-              color: Color(0xff8fa1b6),
+              color: Color.fromARGB(255, 0, 0, 0),
               fontWeight: FontWeight.w600,
               fontSize: 20,
             ),
@@ -321,12 +339,12 @@ class _RegisterState extends State<Register> {
         ),
         TextField(
           obscureText: isPassword,
-          cursorColor: Colors.red,
+          cursorColor: Color.fromARGB(255, 149, 190, 152),
           decoration: InputDecoration(
             hintText: hintText,
             hintStyle: GoogleFonts.josefinSans(
               textStyle: const TextStyle(
-                color: Color(0xffc5d2e1),
+                color: Color.fromARGB(255, 0, 0, 0),
                 fontWeight: FontWeight.w400,
                 fontSize: 20,
               ),

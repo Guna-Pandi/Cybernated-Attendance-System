@@ -63,15 +63,15 @@ class LoginPage extends StatelessWidget {
                     child: Column(
                       children: [
                         const SizedBox(
-                          height: 100,
+                          height: 150,
                         ),
                         _logo(),
                         const SizedBox(
-                          height: 70,
+                          height: 60,
                         ),
                         _loginLabel(),
                         const SizedBox(
-                          height: 70,
+                          height: 80,
                         ),
                         SizedBox(
                           height: 60,
@@ -80,8 +80,8 @@ class LoginPage extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: "Email ID 📧",
                               hintStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 18,
+                                color: Color.fromARGB(199, 255, 255, 255),
+                                fontSize: 15,
                               ),
                               fillColor: Color.fromARGB(220, 180, 180, 180),
                               filled: true,
@@ -90,10 +90,15 @@ class LoginPage extends StatelessWidget {
                                 borderSide: BorderSide.none,
                               ),
                             ),
+                            style: TextStyle(
+                              color:
+                                  Colors.black, // set the text color to black
+                              fontSize: 15,
+                            ),
                           ),
                         ),
                         const SizedBox(
-                          height: 50,
+                          height: 30,
                         ),
                         SizedBox(
                           height: 60,
@@ -103,26 +108,31 @@ class LoginPage extends StatelessWidget {
                             decoration: InputDecoration(
                               hintText: "Password 🔑",
                               hintStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontSize: 18,
+                               color: Color.fromARGB(199, 255, 255, 255),
+                                fontSize: 15,
                               ),
-                               fillColor: Color.fromARGB(220, 180, 180, 180),
+                              fillColor: Color.fromARGB(220, 180, 180, 180),
                               filled: true,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide: BorderSide.none,
                               ),
                             ),
+                            style: TextStyle(
+                              color:
+                                  Colors.black, // set the text color to black
+                              fontSize: 15,
+                            ),
                           ),
                         ),
                         const SizedBox(
-                          height: 90,
+                          height: 70,
                         ),
                         _loginBtn(context),
                         const SizedBox(
-                          height: 90,
+                          height: 80,
                         ),
-                        _signUpLabel("Don't have an account yet?",
+                        _signUpLabel("Don't have an account 8et?",
                             Color.fromARGB(255, 255, 255, 255)),
                         const SizedBox(
                           height: 10,
@@ -144,7 +154,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(
-                          height: 73,
+                          height: 93,
                         ),
                       ],
                     ),
@@ -236,7 +246,7 @@ class LoginPage extends StatelessWidget {
         "Login",
         style: GoogleFonts.josefinSans(
           textStyle: const TextStyle(
-           color: Color.fromARGB(255, 145, 255, 0),
+            color: Color.fromARGB(255, 145, 255, 0),
             fontWeight: FontWeight.w900,
             fontSize: 38,
           ),

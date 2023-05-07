@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'dart:ui';
 
 // ignore: must_be_immutable
 class Home extends StatelessWidget {
@@ -46,112 +47,169 @@ class Home extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cybernated Attendance System',
+      theme: ThemeData.dark(),
       home: Scaffold(
-        body: Center(
-            child: Column(
+        body: Stack(
           children: [
-            const SizedBox(
-              height: 100,
-            ),
-            _logo(),
-            const SizedBox(
-              height: 30,
-            ),
-            _loginLabel(),
-            const SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 0),
-              child: Text(
-                "Welcome Back $username",
-                style: GoogleFonts.josefinSans(
-                  textStyle: const TextStyle(
-                    fontWeight: FontWeight.w800,
-                    fontSize: 18,
+            Positioned(
+              top: 200,
+              left: -100,
+              child: Container(
+                width: 300,
+                height: 300,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(255, 37, 157, 173),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(150),
                   ),
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
-            ),
-            SizedBox(
-              width: 300.0,
-              child: TextField(
-                controller: _classController,
-                decoration: InputDecoration(
-                  labelText: 'File Name',
-                  hintText: 'Enter the File Name',
-                  contentPadding: EdgeInsets.symmetric(horizontal: 10),
+            Positioned(
+              bottom: 10,
+              right: -10,
+              child: Container(
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(189, 204, 195, 97),
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(100),
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: 40.0),
-            Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween, // adjust as needed
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: 46.0),
-                  child: GestureDetector(
-                    onTap: () {
-                      Future<Object?> myFuture =
-                          Navigator.pushNamed(context, '/IP');
-                      myFuture.then((result) {
-                        ip = result.toString();
-                        // Do something with myString
-                      });
-                    },
-                    child: Container(
-                      width: 140,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(246, 198, 135, 238),
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      child: MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: Center(
-                          child: Text(
-                            'Configure IP',
-                            style: GoogleFonts.josefinSans(
-                              textStyle: TextStyle(
-                                color: Color.fromARGB(255, 0, 0, 0),
-                                fontWeight: FontWeight.w800,
-                                fontSize: 16,
-                              ),
-                            ),
+            Positioned(
+              child: BackdropFilter(
+                filter: ImageFilter.blur(
+                  sigmaX: 80,
+                  sigmaY: 80,
+                ),
+                child: Container(),
+              ),
+            ),
+            SingleChildScrollView(
+              child: Center(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 100,
+                    ),
+                    _logo(),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    _loginLabel(),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 0),
+                      child: Text(
+                        "Welcome Back $username",
+                        style: GoogleFonts.josefinSans(
+                          textStyle: const TextStyle(
+                            fontWeight: FontWeight.w800,
+                            fontSize: 18,
                           ),
                         ),
                       ),
                     ),
-                  ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    SizedBox(
+                      width: 300.0,
+                      child: TextField(
+                        controller: _classController,
+                        decoration: InputDecoration(
+                          labelText: 'File Name',
+                          hintText: 'Enter the File Name',
+                          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 40.0),
+                    Row(
+                      mainAxisAlignment:
+                          MainAxisAlignment.spaceBetween, // adjust as needed
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.only(left: 46.0),
+                          child: GestureDetector(
+                            onTap: () {
+                              Future<Object?> myFuture =
+                                  Navigator.pushNamed(context, '/IP');
+                              myFuture.then((result) {
+                                ip = result.toString();
+                                // Do something with myString
+                              });
+                            },
+                            child: Container(
+                              width: 320,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(246, 198, 135, 238),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: MouseRegion(
+                                cursor: SystemMouseCursors.click,
+                                child: Center(
+                                  child: Text(
+                                    'Configure IP',
+                                    style: GoogleFonts.josefinSans(
+                                      textStyle: TextStyle(
+                                        color: Color.fromARGB(255, 0, 0, 0),
+                                        fontWeight: FontWeight.w800,
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        // Padding(
+                        //   padding: EdgeInsets.only(right: 46.0),
+                        //   child: _takeBtn(context, userid),
+                        // ),
+                      ],
+                    ),
+                    SizedBox(height: 25.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _takeBtn(context, userid),
+                        _stopBtn(context, userid),
+                        //
+                      ],
+                    ),
+                    SizedBox(height: 25.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        _makeBtn(context, userid),
+                        _seeBtn(context, userid),
+                        // _signoutBtn(context, userid),
+                      ],
+                    ),
+                    SizedBox(height: 25.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                          width: 320,
+                          child: _signoutBtn(context, userid),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                Padding(
-                  padding: EdgeInsets.only(right: 46.0),
-                  child: _takeBtn(context, userid),
-                ),
-              ],
-            ),
-            SizedBox(height: 25.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _stopBtn(context, userid),
-                _makeBtn(context, userid),
-              ],
-            ),
-            SizedBox(height: 25.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                _seeBtn(context, userid),
-                _signoutBtn(context, userid),
-              ],
+              ),
             ),
           ],
-        )),
+        ),
       ),
     );
   }
@@ -163,7 +221,7 @@ class Home extends StatelessWidget {
         width: 140,
         height: 40,
         decoration: BoxDecoration(
-          color: Color.fromARGB(200, 166, 235, 62),
+          color: Color.fromARGB(244, 153, 255, 0),
           borderRadius: BorderRadius.circular(5),
         ),
         child: Center(
@@ -241,7 +299,7 @@ class Home extends StatelessWidget {
         width: 140,
         height: 40,
         decoration: BoxDecoration(
-          color: Color.fromARGB(193, 218, 235, 62),
+          color: Color.fromARGB(221, 221, 235, 62),
           borderRadius: BorderRadius.circular(5),
         ),
         child: Center(
@@ -267,7 +325,7 @@ class Home extends StatelessWidget {
         width: 140,
         height: 40,
         decoration: BoxDecoration(
-          color: Color.fromARGB(194, 62, 71, 235),
+          color: Color.fromARGB(190, 235, 157, 62),
           borderRadius: BorderRadius.circular(5),
         ),
         child: Center(
@@ -292,7 +350,7 @@ class Home extends StatelessWidget {
         "Cybernated Attendance System",
         style: GoogleFonts.josefinSans(
           textStyle: const TextStyle(
-            color: Color(0xff164276),
+            color: Color.fromARGB(255, 145, 255, 0),
             fontWeight: FontWeight.w900,
             fontSize: 24,
           ),
