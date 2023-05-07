@@ -18,7 +18,7 @@ class CsvPathsScreen extends StatelessWidget {
         return Scaffold(
           appBar: AppBar(
             title: Text('Attendance Records'),
-            backgroundColor: Color.fromRGBO(169, 47, 165, 0.8), 
+            backgroundColor: Color.fromRGBO(169, 47, 165, 0.8),
           ),
           body: StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance
@@ -55,7 +55,9 @@ class CsvPathsScreen extends StatelessWidget {
                           'Date',
                           'Name',
                           'Time of entry',
-                          'Time of exit'
+                          'Time of exit',
+                          'Duration',
+                          'Attendance'
                         ];
                         csvList.add(fieldNames);
                         querySnapshot.docs.forEach((doc) {

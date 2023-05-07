@@ -130,7 +130,7 @@ class Home extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(right: 46.0),
-                  child: _makeBtn(context, userid),
+                  child: _takeBtn(context, userid),
                 ),
               ],
             ),
@@ -138,8 +138,8 @@ class Home extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                _takeBtn(context, userid),
                 _stopBtn(context, userid),
+                _makeBtn(context, userid),
               ],
             ),
             SizedBox(height: 25.0),
