@@ -12,8 +12,8 @@ class LoginPage extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cybernated Attendance System',
+      theme: ThemeData.dark(), // set the app theme to dark mode
       home: Scaffold(
-        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: SizedBox(
             width: double.infinity,
@@ -25,8 +25,8 @@ class LoginPage extends StatelessWidget {
                   child: Container(
                     width: 300,
                     height: 300,
-                    decoration: const BoxDecoration(
-                      color: Color(0x304599ff),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 37, 157, 173),
                       borderRadius: BorderRadius.all(
                         Radius.circular(150),
                       ),
@@ -39,8 +39,8 @@ class LoginPage extends StatelessWidget {
                   child: Container(
                     width: 200,
                     height: 200,
-                    decoration: const BoxDecoration(
-                      color: Color(0x30cc33ff),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(189, 204, 195, 97),
                       borderRadius: BorderRadius.all(
                         Radius.circular(100),
                       ),
@@ -74,12 +74,21 @@ class LoginPage extends StatelessWidget {
                           height: 70,
                         ),
                         SizedBox(
-                          height: 50,
+                          height: 60,
                           child: TextField(
                             controller: _emailController,
                             decoration: InputDecoration(
-                              labelText: "Email",
-                              hintText: "Your Name@example.com",
+                              hintText: "Email ID 📧",
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                              fillColor: Color.fromARGB(220, 180, 180, 180),
+                              filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                           ),
                         ),
@@ -87,13 +96,22 @@ class LoginPage extends StatelessWidget {
                           height: 50,
                         ),
                         SizedBox(
-                          height: 50,
+                          height: 60,
                           child: TextField(
                             controller: _passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
-                              labelText: "Password",
-                              hintText: "Your Password",
+                              hintText: "Password 🔑",
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                               fillColor: Color.fromARGB(220, 180, 180, 180),
+                              filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                           ),
                         ),
@@ -105,11 +123,12 @@ class LoginPage extends StatelessWidget {
                           height: 90,
                         ),
                         _signUpLabel("Don't have an account yet?",
-                            const Color(0xff909090)),
+                            Color.fromARGB(255, 255, 255, 255)),
                         const SizedBox(
                           height: 10,
                         ),
                         Material(
+                          color: Colors.transparent,
                           child: GestureDetector(
                             onTap: () {
                               Navigator.pushNamed(context, '/');
@@ -117,8 +136,9 @@ class LoginPage extends StatelessWidget {
                             child: Text(
                               'Sign Up',
                               style: TextStyle(
-                                color: const Color(0xff164276),
-                                decoration: TextDecoration.underline,
+                                color: Color.fromARGB(255, 5, 164, 243),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
                           ),
@@ -216,9 +236,9 @@ class LoginPage extends StatelessWidget {
         "Login",
         style: GoogleFonts.josefinSans(
           textStyle: const TextStyle(
-            color: Color(0xff164276),
+            color: Color.fromARGB(255, 0, 115, 255),
             fontWeight: FontWeight.w900,
-            fontSize: 34,
+            fontSize: 38,
           ),
         ),
       ),

@@ -83,8 +83,8 @@ class _RegisterState extends State<Register> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Cybernated Attendance System',
+      theme: ThemeData.dark(), // set the app theme to dark mode
       home: Scaffold(
-        backgroundColor: Colors.white,
         body: SingleChildScrollView(
           child: SizedBox(
             width: double.infinity,
@@ -96,8 +96,8 @@ class _RegisterState extends State<Register> {
                   child: Container(
                     width: 300,
                     height: 300,
-                    decoration: const BoxDecoration(
-                      color: Color(0x304599ff),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 37, 157, 173),
                       borderRadius: BorderRadius.all(
                         Radius.circular(150),
                       ),
@@ -110,8 +110,8 @@ class _RegisterState extends State<Register> {
                   child: Container(
                     width: 200,
                     height: 200,
-                    decoration: const BoxDecoration(
-                      color: Color(0x30cc33ff),
+                    decoration: BoxDecoration(
+                      color: Color.fromARGB(189, 204, 195, 97),
                       borderRadius: BorderRadius.all(
                         Radius.circular(100),
                       ),
@@ -138,22 +138,31 @@ class _RegisterState extends State<Register> {
                         ),
                         _logo(),
                         const SizedBox(
-                          height: 70,
+                          height: 60,
                         ),
                         _loginLabel(),
                         const SizedBox(
                           height: 50,
                         ),
                         SizedBox(
-                          height: 75,
+                          height: 80,
                           child: TextField(
                             controller: _emailController,
                             decoration: InputDecoration(
-                              labelText: "Email",
-                              hintText: "Your Name@example.com",
+                              hintText: "Enter Your Email ID 📧",
                               errorText: _isEmailValid
                                   ? null
                                   : 'Please enter a valid email',
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                              filled: true,
+                              fillColor: Color.fromARGB(220, 180, 180, 180),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                             onChanged: (value) {
                               final email = value.trim();
@@ -163,28 +172,46 @@ class _RegisterState extends State<Register> {
                             },
                           ),
                         ),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 30),
                         SizedBox(
-                          height: 50,
+                          height: 60,
                           child: TextField(
                             controller: _passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
-                              labelText: "Password",
-                              hintText: "Your Password",
+                              hintText: "Enter Your Password 🔑",
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                               fillColor: Color.fromARGB(220, 180, 180, 180),
+                              filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                           ),
                         ),
                         const SizedBox(
-                          height: 50,
+                          height: 40,
                         ),
                         SizedBox(
-                          height: 50,
+                          height: 60,
                           child: TextField(
                             controller: _unameController,
                             decoration: InputDecoration(
-                              labelText: 'Username',
-                              hintText: 'Enter your Username',
+                              hintText: 'Enter Username 📛',
+                              hintStyle: TextStyle(
+                                color: Color.fromARGB(255, 0, 0, 0),
+                                fontSize: 18,
+                              ),
+                               fillColor: Color.fromARGB(220, 180, 180, 180),
+                              filled: true,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide.none,
+                              ),
                             ),
                           ),
                         ),
@@ -196,11 +223,12 @@ class _RegisterState extends State<Register> {
                           height: 50,
                         ),
                         _signUpLabel(
-                            "Already have an Account", const Color(0xff909090)),
+                            "Already have an Account !", const Color.fromARGB(255, 255, 255, 255)),
                         const SizedBox(
                           height: 10,
                         ),
                         Material(
+                           color: Colors.transparent,
                           child: GestureDetector(
                             onTap: () {
                               Navigator.pushNamed(context, '/login');
@@ -208,8 +236,9 @@ class _RegisterState extends State<Register> {
                             child: Text(
                               'Sign In',
                               style: TextStyle(
-                                color: const Color(0xff164276),
-                                decoration: TextDecoration.underline,
+                              color: Color.fromARGB(255, 5, 164, 243),
+                                fontSize: 18,
+                                fontWeight: FontWeight.w800,
                               ),
                             ),
                           ),
@@ -316,9 +345,9 @@ class _RegisterState extends State<Register> {
         "Register",
         style: GoogleFonts.josefinSans(
           textStyle: const TextStyle(
-            color: Color(0xff164276),
+            color: Color.fromARGB(255, 106, 255, 0),
             fontWeight: FontWeight.w900,
-            fontSize: 34,
+            fontSize: 38,
           ),
         ),
       ),
